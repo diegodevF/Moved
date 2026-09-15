@@ -1,3 +1,68 @@
+.login-shell {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(251, 146, 60, 0.16), transparent 28%),
+    radial-gradient(circle at 88% 84%, rgba(14, 165, 163, 0.13), transparent 25%),
+    #f3f1ec;
+}
+
+.login-frame {
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+}
+
+.login-intro {
+  background:
+    radial-gradient(circle at 85% 18%, rgba(245, 158, 11, 0.3), transparent 26%),
+    linear-gradient(145deg, #172033 0%, #0f172a 52%, #123d3c 100%);
+}
+
+.login-intro::after {
+  position: absolute;
+  right: -22%;
+  bottom: -22%;
+  width: 70%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.025), 0 0 0 80px rgba(255, 255, 255, 0.02);
+  content: '';
+}
+
+.login-panel {
+  background: rgba(255, 253, 249, 0.96);
+}
+
+.dark .login-shell {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(16, 185, 129, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 84%, rgba(14, 165, 233, 0.1), transparent 25%),
+    #080d14;
+}
+
+.dark .login-frame {
+  border-color: rgba(148, 163, 184, 0.16);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.dark .login-panel {
+  background: rgba(15, 23, 42, 0.97);
+}
+
+.brand-mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 8px;
+  background: #10b981;
+  color: white;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.brand-mark-light {
+  background: #0f172a;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
