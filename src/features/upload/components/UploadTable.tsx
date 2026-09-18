@@ -222,10 +222,11 @@ export const UploadTable = ({ grades, onEdit, onDelete, onAddNew }: UploadTableP
                   </td>
                   <td className="px-4 py-3 text-center font-bold text-slate-900 dark:text-white">
                     <span
-                      className={`inline-block min-w-[2.5rem] rounded px-1.5 py-0.5 text-xs font-black ${grade.score >= PASSING_SCORE
-                        ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300'
-                        : 'bg-rose-50 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300'
-                        }`}
+                      className={`inline-block min-w-[2.5rem] rounded px-1.5 py-0.5 text-xs font-black ${
+                        grade.score >= PASSING_SCORE
+                          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300'
+                          : 'bg-rose-50 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300'
+                      }`}
                     >
                       {grade.score.toFixed(1)}
                     </span>

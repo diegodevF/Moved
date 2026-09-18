@@ -1,6 +1,21 @@
-import { ArrowUpRight, Book, Student, NumberCircleEightIcon } from "@phosphor-icons/react"
+import { useState, useEffect } from "react"
+import { Link } from "react-router"
+import { ArrowUpRight, Book, Student, ChartLineUp } from "@phosphor-icons/react"
+import { getStoredGrades, calculateGradeStats, DEFAULT_STUDENTS, SUBJECTS } from "@/features/upload/services/uploadStorage"
 
 const Dashboard = () => {
+  const [grades, setGrades] = useState(() => getStoredGrades())
+
+  useEffect(() => {
+    const handleUpdate = () => setGrades(getStoredGrades())
+    window.addEventListener('moved_grades_updated', handleUpdate)
+    return () => window.removeEventListener('moved_grades_updated', handleUpdate)
+  }, [])
+
+  const stats = calculateGradeStats(grades)
+  const uniqueSubjects = new Set(grades.map(g => g.subject)).size || SUBJECTS.length
+  const uniqueStudents = new Set(grades.map(g => `${g.studentName} ${g.studentLastName}`)).size || DEFAULT_STUDENTS.length
+
   return (
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
         <section className="relative overflow-hidden rounded-2xl bg-slate-950 p-7 text-white shadow-xl shadow-slate-950/10 sm:p-10">
@@ -17,9 +32,9 @@ const Dashboard = () => {
 
         <div className="grid gap-4 sm:grid-cols-3">
           {[
-            { label: "Estudiantes", value: "Sin datos que mostrar", icon: Student, color: "text-emerald-600 dark:text-emerald-400" },
-            { label: "Materias", value: "Sin datos que mostrar", icon: Book, color: "text-blue-600 dark:text-blue-400" },
-            { label: "Promedio general", value: "Sin datos que mostrar", icon: NumberCircleEightIcon, color: "text-amber-600 dark:text-amber-400" },
+            { label: "Estudiantes activos", value: `${uniqueStudents}`, icon: Student, color: "text-emerald-600 dark:text-emerald-400" },
+            { label: "Materias registradas", value: `${uniqueSubjects}`, icon: Book, color: "text-blue-600 dark:text-blue-400" },
+            { label: "Promedio general", value: stats.totalGrades > 0 ? `${stats.averageScore} / 10` : "Sin notas", icon: ChartLineUp, color: "text-amber-600 dark:text-amber-400" },
           ].map((stat) => {
             const Icon = stat.icon
 
@@ -36,13 +51,16 @@ const Dashboard = () => {
         <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">Siguiente paso</p>
-              <h2 className="mt-2 text-xl font-bold text-slate-950 dark:text-white">Revisa tus proyectos en curso</h2>
-              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Tienes 3 tareas esperando tu atención esta semana.</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">Acción rápida</p>
+              <h2 className="mt-2 text-xl font-bold text-slate-950 dark:text-white">Gestión y Carga de Calificaciones</h2>
+              <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Ingresa notas mediante planilla rápida o importa archivos CSV de tus cursos.</p>
             </div>
-            <button type="button" className="hidden shrink-0 items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-emerald-600 sm:flex">
-              Ver proyectos <ArrowUpRight size={16} />
-            </button>
+            <Link
+              to="/upload"
+              className="hidden shrink-0 items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-emerald-600 sm:flex"
+            >
+              Ir a Calificaciones <ArrowUpRight size={16} />
+            </Link>
           </div>
         </section>
       </div>

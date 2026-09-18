@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -9,6 +10,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function Login() {
+  const navigate = useNavigate()
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    navigate("/dashboard")
+  }
+
   return (
     <main className="login-shell flex min-h-screen items-center justify-center p-4 sm:p-8">
       <div className="login-frame grid w-full max-w-5xl overflow-hidden lg:grid-cols-[0.92fr_1.08fr]">
@@ -38,7 +46,7 @@ export default function Login() {
                 </div>
               </CardHeader>
 
-              <form className="mt-10 space-y-6">
+              <form onSubmit={handleSubmit} className="mt-10 space-y-6">
                 <CardContent className="space-y-5 p-0">
                   <div className="grid gap-2">
                     <Label className="text-xs font-bold uppercase tracking-[0.12em] text-slate-600 dark:text-slate-300" htmlFor="email">

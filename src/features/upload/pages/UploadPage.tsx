@@ -127,10 +127,11 @@ export const UploadPage = () => {
         <button
           type="button"
           onClick={() => handleTabChange('history')}
-          className={`flex items-center gap-2 border-b-2 px-5 py-3 text-xs font-bold transition-colors ${activeTab === 'history'
+          className={`flex items-center gap-2 border-b-2 px-5 py-3 text-xs font-bold transition-colors ${
+            activeTab === 'history'
               ? 'border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400'
               : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
-            }`}
+          }`}
         >
           <ListBullets size={18} weight={activeTab === 'history' ? 'bold' : 'regular'} />
           Historial y Gestión
@@ -139,10 +140,11 @@ export const UploadPage = () => {
         <button
           type="button"
           onClick={() => handleTabChange('batch')}
-          className={`flex items-center gap-2 border-b-2 px-5 py-3 text-xs font-bold transition-colors ${activeTab === 'batch'
+          className={`flex items-center gap-2 border-b-2 px-5 py-3 text-xs font-bold transition-colors ${
+            activeTab === 'batch'
               ? 'border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400'
               : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
-            }`}
+          }`}
         >
           <Table size={18} weight={activeTab === 'batch' ? 'bold' : 'regular'} />
           Planilla Rápida de Notas
@@ -151,10 +153,11 @@ export const UploadPage = () => {
         <button
           type="button"
           onClick={() => handleTabChange('upload')}
-          className={`flex items-center gap-2 border-b-2 px-5 py-3 text-xs font-bold transition-colors ${activeTab === 'upload'
+          className={`flex items-center gap-2 border-b-2 px-5 py-3 text-xs font-bold transition-colors ${
+            activeTab === 'upload'
               ? 'border-emerald-600 text-emerald-600 dark:border-emerald-400 dark:text-emerald-400'
               : 'border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200'
-            }`}
+          }`}
         >
           <UploadSimple size={18} weight={activeTab === 'upload' ? 'bold' : 'regular'} />
           Subir Archivo CSV

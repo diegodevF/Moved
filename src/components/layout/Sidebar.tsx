@@ -40,7 +40,7 @@ const navigationItems = [
   },
   {
     label: "Calificaciones",
-    href: "/dashboard/activity",
+    href: "/upload",
     icon: ChartBar,
   },
   {
@@ -146,7 +146,7 @@ const AppSidebar = () => {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   tooltip="Subir notas"
-                  render={<NavLink to="/dashboard/projects" />}
+                  render={<NavLink to="/upload?tab=batch" />}
                 >
                   <UploadSimple />
 
