@@ -5,7 +5,7 @@ const Dashboard = () => {
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">
         <section className="relative overflow-hidden rounded-2xl bg-slate-950 p-7 text-white shadow-xl shadow-slate-950/10 sm:p-10">
           <div className="relative z-10 max-w-xl">
-            <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">Martes, 15 de septiembre</p>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-emerald-300">{new Date().toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
             <h1 className="text-3xl font-black tracking-[-0.04em] sm:text-4xl">Bienvenido a MOVED</h1>
             <p className="mt-3 max-w-md text-sm leading-6 text-slate-300">
               Aqui podras agregar, eliminar, actualizar o consultar las notas de tus estudiantes y destacar al mejor estudiante de cada materia.
