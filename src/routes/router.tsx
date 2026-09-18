@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import App from "../App";
 import Login from "../features/auth/pages/Login";
 import Dashboard from "@/features/dashboard/pages/Dashboard";
@@ -12,9 +12,12 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             {
+                index: true,
+                element: <Navigate to="/login" replace />
+            },
+            {
                 path: "login",
-                element: <Login />,
-                index: true
+                element: <Login />
             },
             {
                 element: <Sidebar />,
